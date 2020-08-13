@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        align-items: center;
+        padding: 30px;
+      }
+
+      .find-carrot {
+        background-color: orangered;
+        color: white;
+        padding: 8px;
+        font-size: 20px;
+        border-radius: 4px;
+        outline: none;
+      }
+
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="find-carrot">Find carrot!</button>
+    <ul class="carrots">
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="rabbit"><img src="img/rabbit.png" alt="rabbit" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+      <li class="carrot"><img src="img/carrot.png" alt="carrot" /></li>
+    </ul>
+    <script>
+      const rabbit = document.querySelector(".rabbit");
+      const carrots = document.querySelector(".carrot");
+      const btn = document.querySelector(".find-carrot");
+      const rect = rabbit.getBoundingClientRect();
+
+      btn.addEventListener("click", () => {
+        rabbit.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    </script>
+  </body>
+</html>
