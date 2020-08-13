@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser101</title>
+    <style>
+      div {
+        width: 1000px;
+        height: 500px;
+        background-color: peru;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      span {
+        font-size: 28px;
+        color: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span> Window.screen : <span class="screen"> </span> </span>
+      <span> Window.outer : <span class="outer"></span> </span>
+      <span> Window.inner <span class="inner"></span> </span>
+      <span> documentElement : <span class="documentElement"></span> </span>
+    </div>
+
+    <script>
+      "use strict";
+      const screen = document.querySelector(".screen");
+      const outer = document.querySelector(".outer");
+      const inner = document.querySelector(".inner");
+      const documentElement = document.querySelector(".documentElement");
+
+      function getWindowSize() {
+        screen.innerHTML = `${window.screen.width} , ${window.screen.height}`;
+        outer.innerHTML = `${window.outerWidth} , ${window.outerHeight}`;
+        inner.innerHTML = `${window.innerWidth} , ${window.innerHeight}`;
+        documentElement.innerHTML = `${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+      }
+
+      // Init
+      getWindowSize();
+
+      // Event
+      window.addEventListener("resize", getWindowSize);
+    </script>
+  </body>
+</html>
