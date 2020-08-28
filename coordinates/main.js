@@ -5,23 +5,25 @@ const coordinate = document.querySelector(".coordinate");
 const vertical = document.querySelector(".vertical");
 const horizontal = document.querySelector(".horizontal");
 
-function moveElement(e) {
-  const coordinateX = e.pageX;
-  const coordinateY = e.pageY;
+addEventListener("load", () => {
+  const targetRect = target.getBoundingClientRect();
+  const targetHalfWidth = targetRect.width / 2;
+  const targetHalfHeight = targetRect.height / 2;
+  function moveElement(e) {
+    const x = e.pageX;
+    const y = e.pageY;
 
-  coordinate.innerHTML = `${coordinateX}px, ${coordinateY}px`;
+    coordinate.innerHTML = `${x}px, ${y}px`;
 
-  target.style.top = `${coordinateY}px`;
-  target.style.left = `${coordinateX}px`;
+    vertical.style.transform = `translateX(${x}px)`;
+    horizontal.style.transform = `translateY(${y}px)`;
 
-  coordinate.style.top = `${coordinateY}px`;
-  coordinate.style.left = `${coordinateX}px`;
+    target.style.transform = `translate(${x - targetHalfWidth}px, ${
+      y - targetHalfHeight
+    }px)`;
 
-  vertical.style.top = `${coordinateY}px`;
-  vertical.style.left = `${coordinateX}px`;
+    coordinate.style.transform = `translate(${x}px, ${y}px)`;
+  }
 
-  horizontal.style.top = `${coordinateY}px`;
-  horizontal.style.left = `${coordinateX}px`;
-}
-
-document.addEventListener("mousemove", (e) => moveElement(e));
+  document.addEventListener("mousemove", (e) => moveElement(e));
+});

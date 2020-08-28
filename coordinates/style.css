@@ -1,6 +1,8 @@
 body {
   background-color: black;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .line {
@@ -11,28 +13,19 @@ body {
 .horizontal {
   width: 200%;
   height: 1px;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .vertical {
   width: 1px;
   height: 200%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .target {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .coordinate {
   color: white;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(25px, 25px);
+  margin: 20px;
 }
