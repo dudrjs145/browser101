@@ -7,7 +7,10 @@ removeBtn.addEventListener("click", () => {
   ul.removeChild(removeBtn.parentElement);
 });
 
-addBtn.addEventListener("click", () => {
+/*
+새로운 쇼핑 목록을 추가하는 함수
+*/
+function onAdd() {
   const itemName = itemInput.value;
 
   if (itemName != "") {
@@ -30,9 +33,24 @@ addBtn.addEventListener("click", () => {
     });
 
     ul.appendChild(li);
+
+    // 새로 추가된 아이템으로 스크롤링
+    li.scrollIntoView({ block: "center" });
   } else {
     alert("쇼핑 목록을 작성해주세요.");
   }
+
   // 초기화
   itemInput.value = "";
+
+  // 자동으로 포커스 주기
+  itemInput.focus();
+}
+
+addBtn.addEventListener("click", onAdd);
+
+itemInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    onAdd();
+  }
 });
